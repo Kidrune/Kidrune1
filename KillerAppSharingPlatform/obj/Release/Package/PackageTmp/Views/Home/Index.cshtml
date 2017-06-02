@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>Terra Sharing Platform</h1>
+    <p class="lead">Live your dream.</p>
+    <p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Registreer</h2>
+        <p>
+            Registreer je nu om deel te nemen aan het leukste sharing platform van heel Nederland!
+        </p>
+        <p>@Html.ActionLink("Registreer", "Register", "Account", null, new {@class="btn btn-default"})</p>
+    </div>
+    <div class="col-md-4">
+        <h2>Inloggen</h2>
+        <p>Als je al een account hebt log dan nu in om niks te missen van al het leuke content dat op <b>jouw </b>staat te wachten!</p>
+        <p>@Html.ActionLink("Inloggen", "Login", "Account", null, new { @class = "btn btn-default" })</p>
+    </div>
+    
+</div>

@@ -1,0 +1,66 @@
+﻿
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Register</h2>
+
+<head><h1 class="alert-success">@ViewBag.succes</h1></head>
+
+<div class="jumbotron">
+   <form method="post">
+       <div class="col-sm-6 col-md-6">
+           <h2>Gebruikersnaam:</h2>
+           <input id="Username" type="text" class="form-control" name="username" required="required" />
+           <h2>Wachtwoord:</h2>
+           <input id="Password" type="password" class="form-control" name="password" required="required" />
+           <h2>Voornaam:</h2>
+           <input id="Firstname" type="text" class="form-control" name="firstname" required="required" />
+           <h2>Achternaam:</h2>
+           <input id="Lastname" type="text" class="form-control" name="lastname" required="required" />
+           <h2>Email-adress:</h2>
+           <input id="EmailAddress" type="text" class="form-control" name="email" required="required" />
+           <h2>Rol:</h2>
+           <select id="Select1" class="form-control" name="role" required="required">
+               <option value="User" name="User">User</option>
+               <option value="Administrator" name="User">Administrator</option>
+           </select>
+           <br/>
+           <input id="Register" type="submit" value="Registreer" class="btn btn-default" />
+       </div>
+       <div class="col-sm-6 col-md-6">
+           <h2>Verjaardag:</h2>
+           <input id="Birthday" type="text" value="01-01-1990" class="form-control" name="birthday" required="required"/>
+           <h2>Straatnaam:</h2>
+           <input id="Street" type="text" class="form-control" name="street"/>
+           <h2>Huisnummer:</h2>
+           <input id="HouseNumber" type="text" class="form-control" name="housenumber"/>
+           <h2>Postcode:</h2>
+           <input id="PostCode" type="text" class="form-control" name="postcode"/>
+           <h2>Land:</h2>
+           <input id="Land" type="text" class="form-control" name="land"/>
+           <h2>Telefoonnummer:</h2>
+           <input id="PhoneNumber" type="text" class="form-control" name="phonenumber"/>
+           <br/>
+           <h2 class="alert-danger">@ViewBag.register</h2>
+       </div>
+       
+       
+    </form>
+    
+    
+
+    (string)reader["Gebruikersnaam"],
+    (string)reader["Voornaam"],
+    (string)reader["Achternaam"],
+    (string)reader["EmailAdress"],
+    (DateTime)reader["Geboortedatum"],
+    (string)reader["Rol"],
+    (string)reader["Straat"],
+    (string)reader["Huisnummer"],
+    (string)reader["PostCode"],
+    (string)reader["Land"],
+    (string)reader["Telefoonnummer"]
+
+</div>

@@ -1,0 +1,13 @@
+﻿
+@{
+    ViewBag.Title = "Bericht";
+}
+
+<h2>Bericht</h2>
+<h3>@ViewBag.TheMessage</h3>
+<form method="post">
+    <textarea name="message"></textarea>
+    <input type="submit" value="Send" />
+</form>
+
+@Session["Gebruikersnaam"]

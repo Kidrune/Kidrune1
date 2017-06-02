@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Login</h2>
+
+<div class="jumbotron">
+    @ViewBag.login
+    <form method="post">
+        <h2>Gebruikersnaam:</h2>
+        <input id="Username" type="text" class="form-control" name="username"/>
+        <h2>Wachtwoord:</h2>
+        <input id="Password" type="password" class="form-control" name="password"/>
+        <br/>
+        <input id="Login" type="submit" value="Inloggen" class="btn btn-default"/>
+    </form>
+    
+    
+
+</div>
+

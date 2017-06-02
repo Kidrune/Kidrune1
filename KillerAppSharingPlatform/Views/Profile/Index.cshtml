@@ -1,0 +1,49 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model List<string>
+
+<h2>Index</h2>
+
+<div><h2 class="alert-warning"> @ViewBag.succesfull </h2></div>
+
+<form method="post" action="@Url.Action("addfriend", "Profile")">
+    Voer de gebruikersnaam in van de persoon die je toe wilt voegen.
+    <input id="username" type="text" name="username" required="required" class="form-control" />
+    <br/>
+    <input id="Submit1" type="submit" value="submit" class="btn btn-default" />
+</form>
+
+
+
+<h3>Pendinglist:</h3>
+<ul class="list-group">
+  
+</ul>
+    <form method="post" action="@Url.Action("acceptFriend", "Profile")">
+        Selecteer de gebruiker die je wilt accepteren.
+        <select id="Select1" class="form-control" name="username" required="required">
+            @foreach (string item in @ViewBag.PendingFriend)
+            {
+                <li class="list-group-item">
+                    <h4>
+                        <option value="@item" name="username">@item</option></h4>
+                </li>
+            }
+        </select>
+        <br/>
+        <input id="Submit2" type="submit" value="submit"  class="btn btn-default" />
+    </form>
+
+    <h3>Friendlist:</h3>
+    <ul class="list-group">
+        @foreach (string item in @ViewBag.FriendList)
+        {
+            <li class="list-group-item">
+                <h4>@item</h4>
+            </li>
+        }
+
+    </ul>

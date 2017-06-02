@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewBag.Title = "Bericht";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Bericht</h2>
+
+<h3>@ViewBag.TheMessage</h3>
+
+<form method="post">
+    <textarea name="Title"></textarea>
+    <textarea name="Message"></textarea>
+    <input type="submit" value="Send"/>
+</form>
+

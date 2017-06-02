@@ -1,0 +1,5 @@
+C:\Users\Jeffrey\Dropbox\My Myself & I\S22\Fun\KillerAppSharingPlatform\Classes\bin\Debug\Classes.dll
+C:\Users\Jeffrey\Dropbox\My Myself & I\S22\Fun\KillerAppSharingPlatform\Classes\bin\Debug\Classes.pdb
+C:\Users\Jeffrey\Dropbox\My Myself & I\S22\Fun\KillerAppSharingPlatform\Classes\obj\Debug\Classes.csprojResolveAssemblyReference.cache
+C:\Users\Jeffrey\Dropbox\My Myself & I\S22\Fun\KillerAppSharingPlatform\Classes\obj\Debug\Classes.dll
+C:\Users\Jeffrey\Dropbox\My Myself & I\S22\Fun\KillerAppSharingPlatform\Classes\obj\Debug\Classes.pdb

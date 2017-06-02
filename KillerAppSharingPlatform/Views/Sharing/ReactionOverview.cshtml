@@ -1,0 +1,127 @@
+﻿
+@{
+    ViewBag.Title = "ReactionOverview";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using System.Drawing
+@using System.Drawing.Imaging
+@using System.Web.UI.WebControls
+@using KillerAppSharingPlatform.Classes
+@using KillerAppSharingPlatform.Dal.Context
+@model IEnumerable<KillerAppSharingPlatform.Classes.Reaction>
+
+<h2>Reacties:</h2>
+
+
+@*<div class="col-md-6 col-md-push-6">
+    <form method="post">
+        <h1>Plaats een reactie</h1>
+        
+        <h2>Reactie:</h2>
+        <textarea id="Summary" rows="2" cols="20" name="Summary" class="form-control"></textarea>
+        <br/>
+        <input type="file" id="imagepath" name="ImageUpload" />
+        <br/>
+        <p><input id="Submit" type="submit" value="Plaatsen" class="btn btn-default"/></p>
+        @ViewBag.TheMessage
+</form>*@
+
+
+
+
+<div class="col-md-6 col-md-push-6">
+        @using (Html.BeginForm("ReactionOverview", "Sharing", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            
+
+
+            <input type="hidden" name="pagenumber" value="@ViewBag.PageNumber" />
+            <h1>Plaats een reactie</h1>
+            <h2>Reactie:</h2>
+            <input name="pagenumber" value=int.Parse(Request.QueryString[postId])/>
+
+            <textarea id="Summary" rows="2" cols="20" name="Summary" class="form-control" required="required"></textarea>
+            <br />
+            <input type="file" id="imagepath" name="ImageUpload" />
+            <br />
+            <p><input id="Submit" type="submit" value="Plaatsen" class="btn btn-default" /></p>
+            @ViewBag.Path
+        }
+    </div>
+
+    
+       
+    
+
+
+
+
+
+
+
+
+@*@{
+    if (IsPost)
+    {
+        string path = Path.GetFullPath(FileUpload)
+
+        byte[] uploadedFile = new byte[model.File.InputStream.Length];
+
+        Reaction reaction = new Reaction(int.Parse(Request.QueryString["postId"]),7,Request.Form["Summary"], DateTime.Now);
+        SharingSqlContext sharingSqlContext = new SharingSqlContext();
+        sharingSqlContext.CreateReaction(reaction);
+
+
+    }
+}*@
+
+
+<div class="col-md-6 col-md-pull-6">
+    <p>
+        @if (Model != null)
+        {
+
+            <ul class="list-group">
+                @foreach (var item in Model)
+                {
+                    //string afbeelding = null;
+
+                    //if (item.Image != null)
+                    //{
+                    //    afbeelding = "data:image/png;base64," + Convert.ToBase64String(item.Image, 0, item.Image.Length);
+                    //}
+
+                    string likes = "likes";
+                    if (@item.Stars == 1)
+                    {
+                        likes = "like";
+                    }
+                    else
+                    {
+                        likes = "likes";
+                    }
+
+                    <li class="list-group-item">
+                        <h3><div>@if (@item.Image != null)
+                        {
+                            <img src="@item.Image" runat="server" alt="" width="256" height="256" />
+                        }</div>@item.UserName</h3>
+                        <br />
+                        @item.Summary
+                        <br />
+                        @item.DateTime
+                        <br />
+                        @item.Stars @likes 
+                    </li>
+                    <br />
+                }
+            </ul>
+        }
+        else
+        {
+            <div><h2 class="alert-warning"> Geen reacties aanwezig</h2></div>
+            }
+        
+    </p>
+    
+</div>

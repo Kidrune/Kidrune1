@@ -1,0 +1,58 @@
+﻿
+@{
+    ViewBag.Title = "Bericht";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model IEnumerable<KillerAppSharingPlatform.Classes.Message>
+
+<h2>Bericht</h2>
+
+<h3 class="alert-success">@ViewBag.succes</h3>
+
+<ul class="nav nav-pills nav-stacked col-md-4" role="tablist">
+    
+
+    @foreach (var item in Model)
+    {
+        if (item == Model.First())
+        {
+            <li role="presentation" class="active"><a href="#@item.IdMessage" aria-controls="home" role="tab" data-toggle="tab">@item.Username op @item.DateTime</a></li>
+        }
+        else
+        {
+            <li role="presentation"><a href="#@item.IdMessage" aria-controls="home" role="tab" data-toggle="tab">@item.Username op @item.DateTime</a></li>
+        }
+
+
+    }
+    
+
+</ul>
+    <div class="tab-content col-md-4">
+    @foreach (var item in Model)
+    {
+        <div role="tabpanel" class="tab-pane @if(item == Model.First()) {<text> active</text>} " id="@item.IdMessage">
+            Afzender:
+            @item.Username
+            <br />
+            Inhoud bericht:
+            @item.Summary
+            <br />
+            Verstuurd op:
+            @item.DateTime
+        </div>
+    }
+
+        </div>
+    
+    <div class="col-md-4">
+        @using (Html.BeginForm("Bericht", "Profile", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            <h2>Ontvanger:</h2>
+            <input type="text" class="form-control" name="username" />
+            <h2>Inhoud bericht:</h2>
+            <textarea class="form-control" name="summary"></textarea>
+            <br />
+            <input id="Submit1" type="submit" value="Verzend" class="btn btn-default" />
+        }
+    </div>
